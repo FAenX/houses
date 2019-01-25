@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Houses Home</h1>
+  <p>Welcome to houses a website developed by <em>me <em>!</p>
+  <h2>Dynamic content</h2>
+  <p>the following record counts:</p>
+  <ul>
+    <li><strong>houses:</strong> {{ num_houses }}</li>
+    <li><strong>Count:</strong> {{ num_house_instances }}</li>
+    <li><strong>available now:</strong> {{ num_house_instances_available }}</li>
+    <li><strong>Managers:</strong> {{ num_managers }}</li>
+  </ul>
+{% endblock %}
