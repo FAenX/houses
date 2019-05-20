@@ -114,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = '/houses/'
 CORS_ORIGIN_ALLOW_ALL = False
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
