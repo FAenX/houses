@@ -1,17 +1,19 @@
 from django.contrib import admin
-from houses.models import House, HouseInstance, Manager, Tag
+from django_google_maps import widgets as map_widgets
+from django_google_maps import fields as map_fields
+from houses.models import House, HouseInstance, Tag
 
 class HouseInstanceInline(admin.TabularInline):
     model=HouseInstance
 
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget},
+    }
+    
     list_display=['name','date_created']
     inlines=[HouseInstanceInline]
-
-@admin.register(Manager)
-class ManagerAdmin(admin.ModelAdmin):
-    list_display=['first_name','last_name']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):

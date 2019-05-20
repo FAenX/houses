@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 ########user
 AUTH_USER_MODEL = 'users.User'
 USERNAME_FIELD = 'email'
+GOOGLE_MAPS_API_KEY = os.environ['GOOGLE_MAPS_API_KEY']
 
 
 # Application definition
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'houses.apps.HousesConfig',
+    'houses',
+    'django_google_maps',
     'rest_framework',
     'corsheaders',
     'users',
@@ -132,4 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -6,6 +6,8 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 import datetime
 
+from django.utils.text import slugify
+
 
 
 
@@ -56,7 +58,7 @@ class User(AbstractUser):
     email = models.EmailField(_('Email Address'), blank=False, unique=True)
     first_name = models.CharField(_('First Name'), max_length=50, blank=False)
     last_name = models.CharField(_('Last Name'), max_length=50, blank=False)
-    is_manager = models.BooleanField('I am Looking for Work', default=False)
+    is_landlord = models.BooleanField('I am Looking for Work', default=False)
     is_tenant = models.BooleanField('I am Hiring', default=False)
     slug = models.SlugField(unique=True)
                 
@@ -68,3 +70,50 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     #over right REQUIRED_FIELDS to empty
     REQUIRED_FIELDS = []
+
+class LandlordProfile(models.Model):
+    '''
+    landlord profile model
+    '''
+    user = models.OneToOneField(User, related_name='landlordprofile', on_delete=models.CASCADE)
+    phone=models.CharField(max_length=20)
+    description=models.TextField(blank=True,null=True)
+    created_at=models.DateTimeField('Created At',auto_now_add=True)
+    slug  = models.SlugField(unique=True)
+
+    def __str__(self):
+        return f'{self.last_name},{self.last_name}'
+
+###########################
+
+#pre_save conditions
+#create slugs for models with slug field
+
+############################
+@receiver(pre_save, sender=LandlordProfile)
+def create_Landlordprofile_slug(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.user)
+        
+
+
+@receiver(pre_save, sender=User)
+def create_user_slug(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.first_name, instance.last_name)
+        
+
+###############
+
+#post_save user profile
+
+##############
+@receiver(post_save, sender=User)
+def create_Profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.is_landlord:
+            LandlordProfile.objects.create(user=instance)
+        else:
+            pass
+            
+

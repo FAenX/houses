@@ -1,8 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.timezone import now
 import uuid
 from django.urls import reverse
+from django.contrib.auth import get_user_model
+from django_google_maps import fields as map_fields
+
+
+User = get_user_model()
 
 class Tag(models.Model):
     name=models.CharField(max_length=50, unique=True)
@@ -14,30 +18,16 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class Manager(models.Model):
-    first_name=models.CharField(max_length=100)
-    last_name=models.CharField(max_length=100)
-    email=models.EmailField()
-    phone=models.CharField(max_length=20)
-    address=models.TextField(blank=True, null=True)
-    description=models.TextField(blank=True,null=True)
-    created_at=models.DateTimeField('Created At',auto_now_add=True)
-
-    class Meta:
-        ordering = ['first_name','last_name']
-
-    def __str__(self):
-        return f'{self.last_name},{self.last_name}'
-
 class House(models.Model):
 
     name=models.CharField(max_length=250, help_text='Enter House Name')
     description=models.TextField('description',blank=True)
     date_created=models.DateTimeField('date created')
     date_updated=models.DateTimeField('date updated')
-    manager=models.ForeignKey(Manager, verbose_name='owner',
-                            on_delete=models.CASCADE)
+    landlord = models.ForeignKey(User, on_delete=models.CASCADE)
     tag=models.ManyToManyField(Tag,blank=True)
+    address = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
 
     class Meta:
         verbose_name='house'

@@ -19,10 +19,11 @@ from django.conf.urls import url
 from houses import views
 
 urlpatterns = [
+    path('',views.IndexView.as_view(),name='index'),
     path('admin/', admin.site.urls),
     path('houses/',include('houses.urls')),
     path('users/', include('users.urls')),
 
-    url(r'^api/customers/$', views.manager_list),
-    url(r'^api/customers/(?P<pk>[0-9]+)$', views.manager_detail),
+    #url(r'^api/customers/$', views.manager_list),
+    #url(r'^api/customers/(?P<pk>[0-9]+)$', views.manager_detail),
 ]
