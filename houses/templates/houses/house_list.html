@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>House List</h1>
+  {% if house_list %}
+  <ul>
+    {% for house in house_list %}
+      <li>
+        <a href="{{ house.get_absolute_url }}">{{ house.name }}</a> ({{house.manager}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no houses.</p>
+  {% endif %}       
+{% endblock %}

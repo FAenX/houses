@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto py-3">
+            <h2 class='text-center'>Sign up for a free account</h2>
+            <p class="lead text-center">Select below the type of account you want to create</p>
+            <div class="text-center">
+                <a href="{% url 'tenant_signup' %}" class="btn btn-student btn-lg" role="button">I'm a Tenant</a>
+                <a href="{% url 'landlord_signup' %}" class="btn btn-teacher btn-lg" role="button">I'm an Landlord</a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock%}
