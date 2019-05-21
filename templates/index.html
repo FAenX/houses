@@ -6,8 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   
+  <!-- google map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+
   {% load staticfiles %}
   <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+
 </head>
 
 <body style="	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">
@@ -28,13 +34,51 @@
       </div>
     </div>
   </nav>
+  
+  <div id="map">
+    <script>
+      
+      function initMap() {
+        var myLatLng = {lat: -1.2913472506516182  , lng: 36.82158678399196};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: myLatLng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker;
+
+
+        {% for house in houses %}
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng('{{house.geolocation.lat}}', '{{house.geolocation.lon}}'),
+            map: map,
+            title: '{{house.name}}'
+            });
+
+            
+        {% endfor %}
+        }
+
+
+      
+      
+      
+    </script>
+  </div>
+  
+   
   <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=San%20Francisco&amp;z=12&amp;t=k&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>
+      <div class="container">
+        <div class="row">
+          {{ num_houses }}
+        </div>
       </div>
     </div>
-  </div>
+  
   <div class="py-5">
     <div class="container">
       <div class="row">
@@ -54,7 +98,7 @@
       <div class="row">
         <div class="text-center mx-auto col-md-8">
           <h1 class="mb-3">I enjoy with my whole heart</h1>
-          <p class="lead">I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world.</p>
+          <p class="lead">I throw myself down among the tall grass. </p>
         </div>
       </div>
       <div class="row">
@@ -62,14 +106,6 @@
         <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
         <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
         <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
       </div>
     </div>
   </div>
@@ -85,6 +121,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
   
 </body>
 

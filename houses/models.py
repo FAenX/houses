@@ -28,6 +28,7 @@ class House(models.Model):
     tag=models.ManyToManyField(Tag,blank=True)
     address = map_fields.AddressField(max_length=200)
     geolocation = map_fields.GeoLocationField(max_length=100)
+    slug = models.SlugField(unique=True)
 
     class Meta:
         verbose_name='house'
