@@ -18,6 +18,10 @@ from django.urls import path,include
 from django.conf.urls import url
 from houses import views
 
+from django.conf.urls.static import static
+from django.conf import settings
+
+
 urlpatterns = [
     path('',views.IndexView.as_view(),name='index'),
     path('admin/', admin.site.urls),
@@ -26,4 +30,4 @@ urlpatterns = [
 
     #url(r'^api/customers/$', views.manager_list),
     #url(r'^api/customers/(?P<pk>[0-9]+)$', views.manager_detail),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

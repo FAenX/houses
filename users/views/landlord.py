@@ -23,7 +23,7 @@ class LandlordSignupView(CreateView):
     model = User
     form_class = SignUpForm
     template_name = 'registration/signup_form.html'
-    success_url = '/users/accounts/login/'
+    success_url = 'login'
     
 
     #add user_type to *kwargs
@@ -38,5 +38,18 @@ class LandlordSignupView(CreateView):
         user.save()
         return super().form_valid(form)
 
+class LandLordProfileView(TemplateView):
+    '''
+    landlord profile view
+    '''
+
+    model = User
+    template_name = 'dashboards/landlord/landlord_profile.html'
+    context_object_name = 'landlord_profile'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        return context
         
 

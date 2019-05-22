@@ -82,7 +82,7 @@ class LandlordProfile(models.Model):
     slug  = models.SlugField(unique=True)
 
     def __str__(self):
-        return f'{self.last_name},{self.last_name}'
+        return f'{self.user.first_name},{self.user.last_name}'
 
 ###########################
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_google_maps import widgets as map_widgets
 from django_google_maps import fields as map_fields
-from houses.models import House, HouseInstance, Tag
+from houses.models import House, HouseInstance, Tag, Category, Image
 
 
 class HouseInstanceInline(admin.TabularInline):
@@ -27,3 +27,15 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(HouseInstance)
 class HouseInstanceAdmin(admin.ModelAdmin):
     list_filter = ['availability']
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    '''
+    category admin
+    '''
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    '''
+    category admin
+    '''

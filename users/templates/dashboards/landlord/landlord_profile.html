@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                        <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <h5 class="mb-3">{{ user.first_name }} {{ user.last_name }} </h5>
+                                <ol>
+                                <ol>
+                                    <a href="">edit</a>
+                                </ol>
+                        </nav>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                stuff
+                            </p>
+                            
+                            <p>
+                                stuff
+                            </p>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Recent badges</h6> 
+                            
+                              
+                            
+                            <hr> 
+                                                   
+                            <h6>stuff here</h6>
+                              
+
+                        
+                             
+                            <hr>
+                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                            
+                        </div>
+                        <div class="col-md-12">
+                            
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">Jobs</li>
+                                </ol>
+                                <p>
+                                        <a class="" href="">Create Job</a>
+                                </p>
+                                
+                            </nav>
+                            <table class="table table-sm table-hover table-striped">                                
+                                <tbody> 
+                                    <tr>
+                                        <td>
+                                            stuff
+                                        </td>                                 
+                                        <td>
+                                            stuff                               
+                                        </td>
+                                        
+                                        <td>
+                                            No. of applicants                                
+                                        </td>
+                                    </tr>
+                                    {% for job in employer_jobs %}
+                                    
+                                    <tr>
+                                        <td>
+                                            <a href="">{{ job.title }}</a><br>
+                                            <a href="" class="btn btn-outline-primary btn-sm">Update</button> </a>
+                                            <a href="" class="btn btn-outline-danger btn-sm">Delete</button></a>
+                                        </td>                                 
+                                        <td>
+                                            stuff                                
+                                        </td>
+                                        
+                                        <td>
+                                             stuff                                 
+                                        </td>
+                                        
+                                    </tr>
+                                   
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="messages">
+                    <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                    </div>
+                    <table class="table table-hover table-striped">
+                        <tbody>                                    
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                </td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="col-lg-4 order-lg-1 text-center">
+            <style>
+                .avatar {
+                    vertical-align: middle;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    }
+            </style>
+          
+            <h6 class="mt-2">Upload a different photo</h6>
+            
+                <p>
+                   stuff
+                </p>
+                
+                
+
+                <p>
+                    <a href="">Change password</a>
+                </p>
+
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock%}

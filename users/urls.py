@@ -11,6 +11,9 @@ urlpatterns = [
      path('accounts/signup/', base.UserSignUpView.as_view(), name='signup'),
      path('tenant/signup/', tenant.TenantSignupView.as_view(), name='tenant_signup'),
      path('landlord/signup/', landlord.LandlordSignupView.as_view(), name='landlord_signup'),
+
+     ##profile
+     path('landlord/<slug:slug>/', landlord.LandLordProfileView.as_view(), name='landlord_profile'),
      
      
 
