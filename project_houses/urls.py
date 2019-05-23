@@ -23,7 +23,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('',views.IndexView.as_view(),name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('houses/',include('houses.urls')),
     path('users/', include('users.urls')),

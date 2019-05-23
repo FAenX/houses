@@ -1,76 +1,40 @@
 {% include 'base.html' %}
 
 {% block content %}
+{% load static %}
 
+<div class="container-fluid">
+    <div class='row'>
+        <div class='col-md-4'>
+            <div class='row'>
+                {{ house }}
+            </div>
+        </div>
+        <div class='col-md-8'>
+            <div class='row'>
+                map
+                <div id="map_canvas"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="map"></div>
-{% if house %}
-{{ house.geolocation.lat }}
-
-<script>  
+<!-- javascript -->
+<script type='text/javascript'>
+//<![CDATA[
+    $(window).resize(function () {
+    var h = $(window).height(),
+        offsetTop = 105; // Calculate the top offset
     
-    function initMap() {
-    var myLatLng = {lat: {{ house.geolocation.lat }}  , lng: {{ house.geolocation.lon }} };
+    $('#map_canvas').css('height', (h - offsetTop));
+    }).resize();
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: myLatLng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    $(function() {
+      var myMap = new MapsLib({
+        locationColumn:     "geometry",
+        map_center:         [41.8781136, -87.66677856445312],
+        locationScope:      "chicago"
+      });
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker;
-
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng('{{house.geolocation.lat}}', '{{house.geolocation.lon}}'),
-        map: map,
-        title: '{{house.name}}',
-        url: "{% url 'house_detail' house.slug %}"
-        });
-    
-
-        
-    
-
-    google.maps.event.addListener(marker, "click", function() {     
-        window.open(this.url, "_blank");
-        google.maps.event.trigger(map, 'resize');
-        });
-    }
 </script>
-
-{% endif %}
-
-<div class="container"> 
-<div class="row">
-<div class="row border bg-light">
-
-    search bar here<br>
-    search bar here<br>
-    search bar here<br>
-    search bar here<br>
-    
-
-</div>
-</div>
-
-<div class="row">
-<div class="py-5">
-<div class="container">
-    <div class="row">
-    <div class="text-center mx-auto col-md-8">
-        <h1 class="mb-3">Photos</h1>
-    </div>
-    </div>
-    <div class="row">
-    {% for image in images %}
-    <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="{{ image.image.url }}"></div>
-    {% endfor %}
-    </div>
-</div>
-</div>
-</div> 
-</div>
-
 {% endblock %}
