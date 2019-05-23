@@ -51,7 +51,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'users',
+    'django.contrib.gis',
+    'leaflet',
+    'djgeojson',
 ]
+
+SERIALIZATION_MODULES = {
+     "geojson": "django.contrib.gis.serializers.geojson",
+  }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,7 +97,7 @@ WSGI_APPLICATION = 'project_houses.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': os.environ['DATABASE_NAME'],
         'USER': os.environ['DATABASE_USER'],
         'PASSWORD': os.environ['DATABASE_PASSWORD'],

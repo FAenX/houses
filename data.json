@@ -1,0 +1,322 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.55.7 8b86ff77",
+  "osm3s": {
+    "timestamp_osm_base": "2019-05-22T23:23:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1504623366,
+      "lat": 41.889621,
+      "lon": 12.4955224,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:country": "IT",
+        "addr:housenumber": "46",
+        "addr:street": "Via di San Giovanni in Laterano",
+        "amenity": "fast_food",
+        "cuisine": "pizza",
+        "fax": "+39 06 70454900",
+        "name": "Del Monte's",
+        "operator": "Palmina D'Auria",
+        "phone": "+39 06 70454900"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1915802155,
+      "lat": 41.8893609,
+      "lon": 12.4964,
+      "tags": {
+        "amenity": "fast_food",
+        "cuisine": "italian",
+        "drive_through": "no",
+        "name": "Golosseum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2309515077,
+      "lat": 41.8959652,
+      "lon": 12.4995036,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "267",
+        "addr:postcode": "00184",
+        "addr:street": "Via Merulana",
+        "amenity": "fast_food",
+        "cuisine": "pizza",
+        "name": "Pizza Rustica",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "phone": "+39 06 4876543"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2309515082,
+      "lat": 41.8961125,
+      "lon": 12.4994166,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "271",
+        "addr:postcode": "00184",
+        "addr:street": "Via Merulana",
+        "amenity": "fast_food",
+        "cuisine": "kebab",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "Shawarma Station",
+        "opening_hours": "Mo-Su 11:00-23:00",
+        "phone": "+39 06 4881216"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2434296146,
+      "lat": 41.8958341,
+      "lon": 12.4991348,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "29",
+        "addr:postcode": "00184",
+        "addr:street": "Via San Martino ai Monti",
+        "amenity": "fast_food",
+        "cuisine": "kebab",
+        "name": "Pizzeria Al Baraka",
+        "operator": "Oualli Boualem",
+        "phone": "+39 06 484674",
+        "ref:vatin": "IT07153851006"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2871137980,
+      "lat": 41.8953501,
+      "lon": 12.4976178,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "5,7",
+        "addr:postcode": "00184",
+        "addr:street": "Piazza di San Martino ai Monti",
+        "amenity": "fast_food",
+        "cuisine": "italian_pizza",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "email": "zizzipizza@gmail.com",
+        "name": "Zizzi Pizza",
+        "opening_hours": "Mo-Su 11:00-22:30",
+        "phone": "+39 366 410 73 76",
+        "website": "https://www.zizzipizza.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3826855160,
+      "lat": 41.8888315,
+      "lon": 12.4981373,
+      "tags": {
+        "amenity": "fast_food",
+        "name": "Mangio Bio",
+        "organic": "only"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4216565054,
+      "lat": 41.8889828,
+      "lon": 12.4976956,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "118",
+        "addr:postcode": "00184",
+        "addr:street": "Via di San Giovanni in Laterano",
+        "amenity": "fast_food",
+        "cuisine": "pizza",
+        "name": "Pizza Rustica",
+        "opening_hours": "09:00-24:00",
+        "takeaway": "yes",
+        "wifi": "customers"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4283666390,
+      "lat": 41.8947485,
+      "lon": 12.4896716,
+      "tags": {
+        "addr:housenumber": "42",
+        "addr:street": "Via Baccina",
+        "amenity": "fast_food",
+        "cuisine": "pasta;italian",
+        "name": "Pasta Chef street food"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4283669389,
+      "lat": 41.8944085,
+      "lon": 12.4879372,
+      "tags": {
+        "addr:housenumber": "42",
+        "addr:street": "Via Baccina",
+        "amenity": "fast_food",
+        "name": "Pasta chef street food"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4352098389,
+      "lat": 41.893174,
+      "lon": 12.489851,
+      "tags": {
+        "addr:housenumber": "15",
+        "addr:street": "Via Frangipane",
+        "amenity": "fast_food",
+        "cuisine": "vegetarian;italian;lasagna",
+        "internet_access": "wlan",
+        "name": "LasaGnaM Colosseo",
+        "opening_hours": "Mo-Fr 10:30-16:00; Sa-Su 10:00-16:00",
+        "website": "https://lasagnam.it/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4411623690,
+      "lat": 41.8946585,
+      "lon": 12.4914442,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "81",
+        "addr:postcode": "00184",
+        "addr:street": "Via Leonina",
+        "amenity": "fast_food",
+        "cuisine": "italian;mediterranean",
+        "email": "voglia_fashion@yahoo.it",
+        "name": "Ce Stamo a Pensa",
+        "opening_hours": "Mo-Th 09:00-01:00; Fr 09:00-02:00; Sa 10:00-02:00; Su 10:00-01:00",
+        "phone": "+39 06 69363154"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4971065306,
+      "lat": 41.8951362,
+      "lon": 12.4918873,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "54A",
+        "addr:postcode": "00184",
+        "addr:street": "Via degli Zingari",
+        "amenity": "fast_food",
+        "cuisine": "italian;street_food;italian_street_food;napoletanean",
+        "description": "Sandwiches and other Italian street food, really nice and inexpensive",
+        "email": "mauriziosanti@virgilio.it",
+        "name": "Mizio's - cibo da strada",
+        "opening_hours": "Mo-Fr 09:00-21:00, Sa-Su 09:00-02:00",
+        "operator": "MRP Food Srl.",
+        "outdoor_seating": "no",
+        "ref:vatin": "IT13252651008",
+        "smoking": "no",
+        "start_date": "2016-11",
+        "takeaway": "only",
+        "url": "https://www.facebook.com/miziostreetfood/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5051773002,
+      "lat": 41.8927648,
+      "lon": 12.4887179,
+      "tags": {
+        "amenity": "fast_food",
+        "outdoor_seating": "yes",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5124995222,
+      "lat": 41.8955099,
+      "lon": 12.4935304,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "54",
+        "addr:street": "Via Urbana",
+        "amenity": "fast_food",
+        "delivery": "yes",
+        "description": "Panini (Rosette)",
+        "drive_through": "no",
+        "name": "Zia Rosseta",
+        "outdoor_seating": "no",
+        "phone": "+39 06 31052516",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5431635221,
+      "lat": 41.8942626,
+      "lon": 12.4911927,
+      "tags": {
+        "amenity": "fast_food",
+        "cuisine": "pasta",
+        "name": "Maccheroni Express"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5834708406,
+      "lat": 41.8895918,
+      "lon": 12.4956318,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:street": "Via di San Giovanni in Laterano",
+        "amenity": "fast_food",
+        "cuisine": "burger",
+        "drive_through": "no",
+        "name": "Peterland",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5853362084,
+      "lat": 41.8936684,
+      "lon": 12.4897154,
+      "tags": {
+        "addr:city": "Roma",
+        "addr:housenumber": "286",
+        "addr:postcode": "00184",
+        "addr:street": "Via Cavour",
+        "amenity": "fast_food",
+        "name": "L'angolo del panino"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5865669985,
+      "lat": 41.8956683,
+      "lon": 12.4903384,
+      "tags": {
+        "addr:housenumber": "130",
+        "addr:street": "Via dei Serpenti",
+        "amenity": "fast_food",
+        "name": "il Gelatone"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6173175321,
+      "lat": 41.8943085,
+      "lon": 12.4908261,
+      "tags": {
+        "addr:housenumber": "178",
+        "addr:street": "Via dei Serpenti",
+        "amenity": "fast_food",
+        "name": "Fuorinorma"
+      }
+    }
+  ]
+}

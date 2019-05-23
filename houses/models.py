@@ -1,9 +1,9 @@
+from django.contrib.gis.db import models as geomodels
 from django.db import models
 from django.utils.timezone import now
 import uuid
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from django_google_maps import fields as map_fields
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save, pre_save
@@ -35,6 +35,9 @@ class Category(models.Model):
         primary_key=True, default=uuid.uuid4, help_text='Unique ID field')
     name = models.CharField(_('Category'), max_length=40)
 
+    def __str__(self):
+        return self.name
+
 class Image(models.Model):
     '''
     images model
@@ -44,6 +47,9 @@ class Image(models.Model):
     slug = models.SlugField(unique=True)
     house = models.ForeignKey('House', on_delete=models.SET_NULL, null=True)
 
+    def __str__(self):
+        return self.title
+
 
 class House(models.Model):
     id = models.UUIDField(
@@ -51,13 +57,12 @@ class House(models.Model):
     name = models.CharField(max_length=250, help_text='Enter House Name')
     description = models.TextField('description', blank=True)
     date_created = models.DateTimeField(_('Creattion date'), auto_now=True)
-    date_updated = models.DateTimeField('date updated')
-    landlord = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_updated = models.DateTimeField('date updated', auto_now=True)
+    landlord = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     tag = models.ManyToManyField(Tag, blank=True)
-    address = map_fields.AddressField(max_length=200)
-    geolocation = map_fields.GeoLocationField(max_length=100)
-    slug = models.SlugField(unique=True)
-    category = models.ManyToManyField(Category)
+    slug = models.SlugField(blank=True)
+    categories = models.ManyToManyField(Category, blank=True)
+    geom = geomodels.PointField()
     
 
     class Meta:
@@ -74,9 +79,12 @@ class House(models.Model):
         self.date_updated = now()
         super(House, self).save(*args, **kwargs)
 
+    def get_categories(self):
+        return self.categories.all()
+
     def get_absolute_url(self):
         """return the url to access the detail record of this house"""
-        return reverse('house-detail', args=[str(self.slug)])
+        return reverse('house_detail', kwargs={'slug': self.slug})
 
 
 class HouseInstance(models.Model):

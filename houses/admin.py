@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.gis.admin import OSMGeoAdmin
 from django_google_maps import widgets as map_widgets
 from django_google_maps import fields as map_fields
 from houses.models import House, HouseInstance, Tag, Category, Image
@@ -9,13 +10,13 @@ class HouseInstanceInline(admin.TabularInline):
 
 
 @admin.register(House)
-class HouseAdmin(admin.ModelAdmin):
+class HouseAdmin(OSMGeoAdmin):
     formfield_overrides = {
         map_fields.AddressField: {
             'widget': map_widgets.GoogleMapsAddressWidget(attrs={'data-map-type': 'roadmap'})},
     }
 
-    list_display = ['name', 'date_created']
+    list_display = ['name', 'date_created', 'geom', 'landlord', 'get_categories']
     inlines = [HouseInstanceInline]
 
 

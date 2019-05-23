@@ -1,4 +1,15 @@
 from rest_framework.decorators import api_view
+from django.core.serializers import serialize
+from django.http import JsonResponse
+
+from .models import House
+
+def houses(request):
+    if request.method == 'GET':
+        houses = serialize('geojson', House.objects.all(), geometry_field='geom',
+          fields=('name',))
+        return JsonResponse(houses, content_type='application/json', safe=False) 
+
 
 @api_view(['GET', 'POST'])
 def manager_list(request):
